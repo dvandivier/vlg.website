@@ -520,3 +520,69 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 700px) {
   .doc-viewer iframe { height: 420px; }
 }
+
+/* ---- Tax-first restructure (draft 2026-10-29) ---- */
+.nav-list .nav-cta a.btn { color: var(--navy); padding: 0.6rem 1.1rem; font-size: 0.8rem; }
+.nav-list .nav-cta a.btn:hover { color: var(--navy); }
+
+.hero-points { list-style: none; padding: 0; margin: 2rem auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 2rem; position: relative; z-index: 1; }
+.hero-points li { color: rgba(255,255,255,0.85); font-size: 0.9rem; letter-spacing: 0.04em; }
+.hero-points li::before { content: '✓ '; color: var(--gold); font-weight: 700; }
+
+.feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-md); }
+.feature-card { background: var(--white); border-top: 4px solid var(--gold); border-radius: var(--radius); box-shadow: var(--shadow-card); padding: 2.25rem 2rem; display: flex; flex-direction: column; transition: box-shadow var(--transition), transform var(--transition); }
+.feature-card:hover { box-shadow: var(--shadow-lift); transform: translateY(-2px); }
+.feature-card .feature-tag { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; }
+.feature-card h3 { margin-bottom: 0.75rem; }
+.feature-card p { color: var(--slate); }
+.feature-card .check-list { margin-bottom: 1.5rem; }
+.feature-card .btn { margin-top: auto; align-self: flex-start; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-md); counter-reset: step; }
+.step { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-card); padding: 2rem 1.75rem; position: relative; }
+.step::before { counter-increment: step; content: counter(step, decimal-leading-zero); display: block; font-family: var(--font-serif); font-style: italic; font-size: 2.5rem; color: var(--gold); line-height: 1; margin-bottom: 0.75rem; }
+.step h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.step p { color: var(--slate); margin: 0; font-size: 0.95rem; }
+
+.strategy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-md); }
+.strategy { background: var(--white); border-left: 3px solid var(--gold); border-radius: var(--radius); box-shadow: var(--shadow-card); padding: 1.75rem 1.5rem; }
+.strategy .num { font-family: var(--font-serif); font-style: italic; color: var(--gold); font-size: 1.5rem; display: block; margin-bottom: 0.25rem; }
+.strategy h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.strategy p { color: var(--slate); font-size: 0.95rem; margin: 0; }
+.strategy a { font-weight: 600; }
+
+.who-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-md); text-align: center; }
+.who-list div { padding: 1.5rem 1rem; border: 1px solid rgba(26,36,86,0.12); border-radius: var(--radius); background: var(--white); }
+.who-list h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+.who-list p { color: var(--slate); font-size: 0.9rem; margin: 0; }
+
+.estate-band { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--gap-lg); align-items: center; }
+.estate-band .cta-actions { justify-content: flex-start; }
+
+@media (max-width: 900px) {
+  .strategy-grid, .steps { grid-template-columns: 1fr 1fr; }
+  .who-list { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-list .nav-cta { padding-top: 0.75rem; }
+  .feature-grid, .steps, .strategy-grid, .estate-band { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .who-list { grid-template-columns: 1fr; }
+}
+.site-footer .footer-top { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+.feature-grid > *, .strategy-grid > *, .steps > * { min-width: 0; }
+@media (max-width: 900px) { .site-footer .footer-top { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) {
+  .btn { white-space: normal; text-align: center; }
+  .feature-card { padding: 1.75rem 1.25rem; }
+  .site-footer .footer-top { grid-template-columns: 1fr; }
+}
+
+/* Partners (hidden page) logo grid */
+.partner-grid { list-style: none; padding: 0; margin: 0 auto; max-width: 960px; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-md); }
+.partner-logo { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-card); aspect-ratio: 3 / 2; display: flex; align-items: center; justify-content: center; padding: 1.25rem; }
+.partner-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.partner-placeholder { color: rgba(26, 36, 86, 0.35); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; border: 2px dashed rgba(26, 36, 86, 0.15); box-shadow: none; }
+@media (max-width: 768px) { .partner-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .who-list { grid-template-columns: repeat(5, 1fr); } }
